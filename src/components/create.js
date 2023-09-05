@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Create() {
     const [firstName, setFirstName] = useState('');
@@ -9,6 +10,7 @@ export default function Create() {
     const [checkbox, setCheckbox] = useState(false);
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
+    const navigate = useNavigate();
 
     const validateForm = () => {
         const newErrors = {};
@@ -41,6 +43,7 @@ export default function Create() {
                 .then((response) => {
                     console.log('Data posted successfully', response);
                     setSubmitted(true);
+                    navigate('/');
                 })
                 .catch((error) => {
                     console.error('Error posting data', error);

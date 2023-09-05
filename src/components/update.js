@@ -5,6 +5,8 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Update() {
     const[firstName , setfirstName] = useState('');
@@ -13,6 +15,8 @@ export default function Update() {
     const {id} = useParams();
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
+    const navigate = useNavigate();
+
 
     const validateForm = () => {
         const newErrors = {};
@@ -59,6 +63,8 @@ export default function Update() {
             .then((response) => {
                 console.log('Update successful', response.data);
                 setSubmitted(true);
+                navigate('/');
+
             })
             .catch((error) => {
                 console.error('Update failed', error);
