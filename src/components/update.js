@@ -95,8 +95,8 @@ export default function Update() {
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             I agree to the Terms and Conditions
                         </label>
+                        {errors.checkbox && <div className="text-danger">{errors.checkbox}</div>}
                     </div>
-                    {errors.checkbox && <div className="text-danger">{errors.checkbox}</div>}
                     <button type="button" className="btn btn-dark mt-3 col-1" onClick={updateAPIData}>
                         Save
                     </button>
