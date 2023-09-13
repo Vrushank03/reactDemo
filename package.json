@@ -44,6 +44,7 @@
     "redux": "^4.2.1"
   },
   "scripts": {
-    "json-server": "json-server --watch db.json --port 3030"
+    "json-server": "json-server --watch db.json --port 3030",
+    "start": "react-scripts start"
   }
 }

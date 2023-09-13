@@ -22,6 +22,7 @@
       "fname": "Vrushank",
       "lname": "Dhamecha",
       "password": "030303",
+      "repeatpassword": "030303",
       "email": "vrushank@gmail.com"
     },
     {
@@ -29,14 +30,40 @@
       "fname": "Mk",
       "lname": "Sir",
       "password": "030303",
+      "repeatpassword": "030303",
       "email": "mk@gmail.com"
     },
     {
+      "id": 3,
       "fname": "Jaikishan",
       "lname": "Utwani",
       "password": "030303",
-      "email": "jay@gmail.com",
-      "id": 3
+      "repeatpassword": "030303",
+      "email": "jay@gmail.com"
+    },
+    {
+      "id": 4,
+      "email": "test1@gmail.com",
+      "password": "030303",
+      "repeatpassword": "030303",
+      "fname": "Mit",
+      "lname": "Patel"
+    },
+    {
+      "id": 5,
+      "email": "test2@gmail.com",
+      "password": "030303",
+      "repeatpassword": "030303",
+      "fname": "Kinjal",
+      "lname": "Patel"
+    },
+    {
+      "id": 6,
+      "email": "test3@gmail.com",
+      "password": "030303",
+      "repeatpassword": "030303",
+      "fname": "Kinjal2",
+      "lname": "Patel"
     }
   ]
 }

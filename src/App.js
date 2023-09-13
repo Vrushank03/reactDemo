@@ -4,6 +4,7 @@ import Create from './components/create';
 import Read from './components/read';
 import Update from './components/update';
 import Login from './components/login';
+import Register from './components/register';
 import { BrowserRouter as Router , Route , Routes } from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       </div> */}
       <Routes>
         <Route exact path='/login' element={<Login />} />
+        <Route exact path='/register' element={<Register />} />
         <Route exact path='/create' element={<Create />} />
         <Route exact path='/' element={<Read />} />
         <Route exact path='/update/:id' element={<Update />} />
