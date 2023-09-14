@@ -1,19 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { GoogleLogin  } from '@react-oauth/google';
 
-export default function Login(){
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
+
+export default function Login() {
     const [formData, setFormData] = useState({
-        email: '', 
-        password: '' 
+        email: '',
+        password: ''
     });
-    const navigate = useNavigate();
     const [APIData , setAPIData] = useState([]);
-    const [Authuser , setAuthuser] = useState({});
+    const navigate = useNavigate();
     const [error, setErrors] = useState('');
-
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -25,6 +25,20 @@ export default function Login(){
         })
 
     }
+
+    function handleChange(e) {
+        setFormData({...formData, [e.target.name] : e.target.value})
+    }
+
+    const handleOAuthSuccess = (response) => {
+        navigate('/');
+    };
+
+    const handleOAuthFailure = (error) => {
+        console.error('OAuth login failed:', error);
+        setErrors('OAuth login failed');
+    };
+
     function handleAuthUser(userData){
         const AuthUser = userData.filter(function(item){
             return item.email == formData.email && item.password == formData.password;
@@ -36,9 +50,7 @@ export default function Login(){
             setErrors('Email or Password is wrong!!');
         }
     }
-    function handleChange(e) {
-        setFormData({...formData, [e.target.name] : e.target.value})
-    }
+
     return (
         <section className="vh-100 bg-dark" style={{ backgroundColor: "#eee" }}>
             <div className="container h-100">
@@ -77,6 +89,14 @@ export default function Login(){
                                                 </p>
                                             </div>
                                         </form>
+                                        <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 text-center">
+                                            <div className="text-center">
+                                                <p>Or, login with Google:</p>
+                                                <GoogleOAuthProvider clientId="850422955809-5qug560ogd291i5ackrra748m0iumvie.apps.googleusercontent.com">
+                                                    <GoogleLogin onSuccess={handleOAuthSuccess} onFailure={handleOAuthFailure}/>
+                                                </GoogleOAuthProvider>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample image" />
@@ -88,5 +108,5 @@ export default function Login(){
                 </div>
             </div>
         </section>
-    )
+    );
 }
