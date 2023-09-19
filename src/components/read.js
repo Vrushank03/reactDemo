@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
 export default function Read(){
     const [APIData , setAPIData] = useState([]);
     const getData = () => {

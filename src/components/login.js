@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { GoogleLogin  } from '@react-oauth/google';
-
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
@@ -89,13 +88,10 @@ export default function Login() {
                                                 </p>
                                             </div>
                                         </form>
-                                        <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 text-center">
-                                            <div className="text-center">
-                                                <p>Or, login with Google:</p>
-                                                <GoogleOAuthProvider clientId="850422955809-5qug560ogd291i5ackrra748m0iumvie.apps.googleusercontent.com">
-                                                    <GoogleLogin onSuccess={handleOAuthSuccess} onFailure={handleOAuthFailure}/>
-                                                </GoogleOAuthProvider>
-                                            </div>
+                                        <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 justify-content-center mx-0">
+                                            <GoogleOAuthProvider clientId="850422955809-5qug560ogd291i5ackrra748m0iumvie.apps.googleusercontent.com">
+                                                <GoogleLogin onSuccess={handleOAuthSuccess} onFailure={handleOAuthFailure}/>
+                                            </GoogleOAuthProvider>
                                         </div>
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
